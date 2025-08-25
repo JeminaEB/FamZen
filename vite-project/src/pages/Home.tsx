@@ -1,4 +1,4 @@
-export default function Home() {
+export function Home() {
   return (
     <div>
       <h1>Bienvenido a Padres Sin Caos 🚀</h1>
@@ -6,3 +6,5 @@ export default function Home() {
     </div>
   );
 }
+
+export default Home;  
