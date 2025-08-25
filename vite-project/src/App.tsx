@@ -1,9 +1,12 @@
-import Home from "./pages/Home";
+import * as React from "react";
 
-export default function App() {
+
+function App() {
   return (
     <div>
-      <Home />
+      <h1>Hola Mundo</h1>
     </div>
-  );
+  )
 }
+
+export default App;
