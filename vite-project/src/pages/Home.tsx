@@ -1,23 +1,69 @@
-import React from "react";
+import React, { useState } from "react";
+import "./Home.css";
 
-export function Home() {
+export default function Home() {
+  const [open, setOpen] = useState<string | null>(null);
+
+  const toggle = (section: string) => {
+    setOpen(open === section ? null : section);
+  };
+
+  const sections = [
+    {
+      title: "Calendario Familiar",
+      description: "Sincroniza horarios de todos y recibe recordatorios automáticos.",
+      className: "pink"
+    },
+    {
+      title: "Asistente de Tareas",
+      description: "Lista compartida con asignaciones automáticas según el tiempo disponible.",
+      className: "yellow"
+    },
+    {
+      title: "Tiempo Personal",
+      description: "Encuentra huecos libres y bloquea momentos de respiro.",
+      className: "green"
+    },
+    {
+      title: "Notas y Documentos",
+      description: "Guarda recetas, listas de compras y autorizaciones en un solo lugar.",
+      className: "blue"
+    }
+  ];
+
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-indigo-200 to-white text-gray-800">
-      <h1 className="text-4xl font-bold mb-4 text-indigo-700">
-        Bienvenido a Padres Sin Caos 🚀
-      </h1>
-      <p className="text-lg mb-6">Tu espacio sin estrés ✨</p>
+    <div className="page">
+      {/* Header */}
+      <header>
+        <h1>Padres Sin Caos 🚀</h1>
+        <nav>
+          <a href="#">Inicio</a>
+          <a href="#">Recursos</a>
+          <a href="#">Contacto</a>
+        </nav>
+      </header>
 
-      <div className="flex gap-4">
-        <button className="px-6 py-2 bg-indigo-600 text-white rounded-2xl shadow-md hover:bg-indigo-700 transition">
-          Explorar
-        </button>
-        <button className="px-6 py-2 bg-gray-200 text-gray-800 rounded-2xl shadow-md hover:bg-gray-300 transition">
-          Ingresar
-        </button>
-      </div>
+      {/* Main */}
+      <main>
+        <h2>Tu asistente inteligente para familias ✨</h2>
+        <div className="sections">
+          {sections.map((sec) => (
+            <div
+              key={sec.title}
+              className={`card ${sec.className}`}
+              onClick={() => toggle(sec.title)}
+            >
+              <h3>{sec.title}</h3>
+              {open === sec.title && <p>{sec.description}</p>}
+            </div>
+          ))}
+        </div>
+      </main>
+
+      {/* Footer */}
+      <footer>
+        <p>© 2025 Padres Sin Caos · Todos los derechos reservados</p>
+      </footer>
     </div>
   );
 }
-
-export default Home;

@@ -1,0 +1,114 @@
+/* Estilos generales */
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #dbeafe; /* azul pastel */
+  color: #333;
+}
+
+/* Header */
+header {
+  background-color: #93c5fd; /* azul más fuerte */
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+}
+
+header h1 {
+  font-size: 1.8rem;
+  color: white;
+  font-weight: bold;
+}
+
+header nav a {
+  margin-left: 1rem;
+  text-decoration: none;
+  font-weight: 500;
+  color: white;
+  transition: color 0.2s ease;
+}
+
+header nav a:hover {
+  text-decoration: underline;
+}
+
+/* Contenido principal */
+main {
+  flex: 1;
+  padding: 2rem;
+}
+
+main h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #1e3a8a;
+  margin-bottom: 1.5rem;
+}
+
+/* Grid de secciones */
+.sections {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Tarjetas */
+.card {
+  border-radius: 1rem;
+  padding: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0px 3px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+/* Colores pastel */
+.card.pink {
+  background-color: #fbcfe8;
+}
+
+.card.yellow {
+  background-color: #fef9c3;
+}
+
+.card.green {
+  background-color: #bbf7d0;
+}
+
+.card.blue {
+  background-color: #bfdbfe;
+}
+
+/* Títulos de tarjeta */
+.card h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #374151;
+}
+
+/* Descripción */
+.card p {
+  margin-top: 0.8rem;
+  color: #4b5563;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* Footer */
+footer {
+  background-color: #93c5fd;
+  text-align: center;
+  color: white;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+footer p {
+  margin: 0;
+  font-size: 0.9rem;
+}
