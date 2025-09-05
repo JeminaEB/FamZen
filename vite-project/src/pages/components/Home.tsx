@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Header from "./Header"; // 👈 Importa el nuevo header
 import "./Home.css";
 
 export default function Home() {
@@ -33,15 +34,8 @@ export default function Home() {
 
   return (
     <div className="page">
-      {/* Header */}
-      <header>
-        <h1>Padres Sin Caos 🚀</h1>
-        <nav>
-          <a href="#">Inicio</a>
-          <a href="#">Recursos</a>
-          <a href="#">Contacto</a>
-        </nav>
-      </header>
+      {/* Header separado */}
+      <Header />
 
       {/* Main */}
       <main>

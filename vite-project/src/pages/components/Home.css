@@ -2,37 +2,11 @@
 body {
   margin: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #dbeafe; /* azul pastel */
-  color: #333;
+  background-color: #faf3e0; /* beige suave */
+  color: #2d2d2d;
 }
 
-/* Header */
-header {
-  background-color: #93c5fd; /* azul más fuerte */
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
-}
 
-header h1 {
-  font-size: 1.8rem;
-  color: white;
-  font-weight: bold;
-}
-
-header nav a {
-  margin-left: 1rem;
-  text-decoration: none;
-  font-weight: 500;
-  color: white;
-  transition: color 0.2s ease;
-}
-
-header nav a:hover {
-  text-decoration: underline;
-}
 
 /* Contenido principal */
 main {
@@ -43,7 +17,7 @@ main {
 main h2 {
   font-size: 1.4rem;
   font-weight: 600;
-  color: #1e3a8a;
+  color: #3a5a40; /* verde natural profundo */
   margin-bottom: 1.5rem;
 }
 
@@ -69,19 +43,19 @@ main h2 {
 
 /* Colores pastel */
 .card.pink {
-  background-color: #fbcfe8;
+  background-color: #f6bd60; /* amarillo/naranja pastel */
 }
 
 .card.yellow {
-  background-color: #fef9c3;
+  background-color: #fefae0; /* beige amarillento */
 }
 
 .card.green {
-  background-color: #bbf7d0;
+  background-color: #a3b18a; /* verde oliva claro */
 }
 
 .card.blue {
-  background-color: #bfdbfe;
+  background-color: #adc178; /* verde hierba suave */
 }
 
 /* Títulos de tarjeta */
@@ -89,7 +63,7 @@ main h2 {
   margin: 0;
   font-size: 1.2rem;
   font-weight: bold;
-  color: #374151;
+  color: #2d2d2d;
 }
 
 /* Descripción */
@@ -102,7 +76,7 @@ main h2 {
 
 /* Footer */
 footer {
-  background-color: #93c5fd;
+  background-color: #e07a5f; /* naranja suave */
   text-align: center;
   color: white;
   padding: 1rem;
