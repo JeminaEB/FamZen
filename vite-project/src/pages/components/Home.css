@@ -1,4 +1,4 @@
-/* Estilos generales */
+/* ===== Base ===== */
 body {
   margin: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -6,59 +6,137 @@ body {
   color: #2d2d2d;
 }
 
-
-
-/* Contenido principal */
 main {
   flex: 1;
   padding: 2rem;
 }
 
-main h2 {
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: #3a5a40; /* verde natural profundo */
-  margin-bottom: 1.5rem;
+/* ===== HERO ===== */
+
+.hero {
+  max-width: 1100px;
+  margin: 0 auto 2rem;
 }
 
-/* Grid de secciones */
+.hero-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #3a5a40; /* verde natural profundo */
+  margin: 0 0 0.6rem;
+}
+
+.hero-subtitle {
+  font-size: 1rem;
+  color: #4b6b4f;
+  max-width: 520px;
+  line-height: 1.4;
+  margin: 0 0 1.3rem;
+}
+
+.hero-extra {
+  display: grid;
+  gap: 1rem;
+  max-width: 650px;
+}
+
+.quote {
+  background: #fff7e6;
+  border-radius: 14px;
+  padding: 0.9rem 1.1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.quote-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #d97c5a; /* tono salmón */
+}
+
+.quote-text {
+  margin-top: 0.35rem;
+  font-size: 0.95rem;
+  color: #5b5b3c;
+}
+
+.quick-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.badge {
+  font-size: 0.8rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  background: #ffe7d2;
+  color: #5b3b2b;
+  white-space: nowrap;
+}
+
+/* ===== Grid / Secciones ===== */
+
+.sections-wrapper {
+  max-width: 1100px;
+  margin: 0 auto 2.2rem;
+}
+
 .sections {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1.5rem;
 }
 
-/* Tarjetas */
+/* ===== Cards ===== */
 .card {
-  border-radius: 1rem;
-  padding: 1.5rem;
+  border-radius: 1.6rem;
+  padding: 1.5rem 1.6rem;
   cursor: pointer;
-  box-shadow: 0px 3px 6px rgba(0,0,0,0.1);
-  transition: transform 0.2s ease, background-color 0.3s ease;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, background-color 0.3s ease,
+    box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .card:hover {
-  transform: scale(1.05);
+  transform: scale(1.03);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.14);
 }
 
-/* Colores pastel */
+/* Cabecera de la tarjeta */
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.card-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.86);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+}
+
+/* Paleta */
 .card.pink {
-  background-color: #f6bd60; /* amarillo/naranja pastel */
+  background-color: #f6bd60; /* naranja pastel */
 }
-
 .card.yellow {
-  background-color: #fefae0; /* beige amarillento */
+  background-color: #fefae0; /* beige claro   */
 }
-
 .card.green {
-  background-color: #a3b18a; /* verde oliva claro */
+  background-color: #a3b18a; /* verde oliva   */
 }
-
 .card.blue {
-  background-color: #adc178; /* verde hierba suave */
+  background-color: #adc178; /* verde hierba  */
 }
 
-/* Títulos de tarjeta */
 .card h3 {
   margin: 0;
   font-size: 1.2rem;
@@ -66,7 +144,6 @@ main h2 {
   color: #2d2d2d;
 }
 
-/* Descripción */
 .card p {
   margin-top: 0.8rem;
   color: #4b5563;
@@ -74,9 +151,92 @@ main h2 {
   line-height: 1.4;
 }
 
-/* Footer */
+/* ===== RESUMEN RÁPIDO ===== */
+
+.summary {
+  max-width: 1100px;
+  margin: 0 auto 3rem;
+}
+
+.summary-title {
+  font-size: 1.1rem;
+  color: #355536;
+  margin-bottom: 0.9rem;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.summary-item {
+  background: #fff7e9;
+  border-radius: 12px;
+  padding: 0.8rem 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.summary-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #b17a5a;
+}
+
+.summary-value {
+  margin-top: 0.25rem;
+  font-size: 0.95rem;
+  color: #3c3c26;
+}
+
+/* ===== CONTACTO ===== */
+
+.contact {
+  max-width: 1100px;
+  margin: 0 auto 3rem;
+  padding: 1.2rem 1.4rem;
+  border-radius: 1rem;
+  background: #ffe7d4;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.contact-title {
+  font-size: 1.05rem;
+  color: #5c3a2c;
+  margin: 0 0 0.5rem;
+}
+
+.contact-text {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #4b382e;
+}
+
+/* ===== BOTÓN FLOTANTE (+) ===== */
+
+.fab {
+  position: fixed;
+  right: 1.8rem;
+  bottom: 1.8rem;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: none;
+  background: #f4a28c;
+  color: #ffffff;
+  font-size: 1.7rem;
+  line-height: 0;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== Footer ===== */
 footer {
-  background-color: #e07a5f; /* naranja suave */
+  background-color: #f1a995;
   text-align: center;
   color: white;
   padding: 1rem;
@@ -85,4 +245,72 @@ footer {
 footer p {
   margin: 0;
   font-size: 0.9rem;
+}
+
+/* ===== MODO APP MÓVIL (≤ 900px) ===== */
+@media (max-width: 900px) {
+  main {
+    padding: 16px 14px 24px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .hero {
+    margin-bottom: 1.4rem;
+  }
+
+  .hero-title {
+    font-size: 1.25rem;
+    line-height: 1.3;
+    margin: 8px 0 6px;
+  }
+
+  .hero-subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .hero-extra {
+    gap: 0.7rem;
+  }
+
+  .sections {
+    grid-template-columns: 1fr; /* a una columna */
+    gap: 12px;
+  }
+
+  .card {
+    border-radius: 14px;
+    padding: 16px 18px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.05s ease;
+  }
+
+  .card h3 {
+    font-size: 1.05rem;
+  }
+  .card p {
+    font-size: 0.95rem;
+  }
+
+  .summary-grid,
+  .contact {
+    grid-template-columns: 1fr;
+  }
+
+  .summary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  footer {
+    margin-top: 16px;
+    padding: 12px;
+    font-size: 0.9rem;
+  }
+
+  @media (hover: none) {
+    .card:hover {
+      transform: none;
+    }
+  }
 }

@@ -1,115 +1,179 @@
-/* ===== Vars de tamaño/espacio ===== */
+/* =========================
+   Header.css — versión limpia y estable
+   ========================= */
 :root{
-  /* sube este valor si quieres logo más grande sin estirar el header */
-  --header-height: clamp(88px, 10vw, 124px);
-  --container-max: 1200px;
-  --x-pad: 24px;
+  /* Tamaño del header (controla el tamaño del logo) */
+  --header-h-desktop: 96px;
+  --header-h-mobile:  76px;
+
+  /* Contenedor y padding lateral */
+  --container-w: 1200px;
+  --x-pad-desktop: 1.5rem;
+  --x-pad-mobile:  1rem;
+
+  /* Ajuste fino vertical del logo (compensa “aire” del PNG) */
+  --logo-tweak-desktop: 6%;  /* + baja el logo, - lo sube (4–8% suele ir bien) */
+  --logo-tweak-mobile:  0%;
+
+  /* Colores */
+  --header-bg: #f4a28c;
+  --link:      #fff7ee;
+  --linkHover: #ffffff;
+  --underline: #ffe7d4;
 }
 
-/* ===== Header ===== */
-.site-header{
-  background-color: #e07a5f;
-  position: sticky;         /* opcional: pegado arriba */
-  top: 0;
-  z-index: 50;
-  box-shadow: 0 2px 5px rgba(0,0,0,.1);
+/* ===== Header base ===== */
+.fz-header{
+  background: var(--header-bg);
+  padding: 0 ;
+  box-shadow: 0 2px 6px rgba(0,0,0,.06);
 }
 
-.header-inner{
-  position: relative;
-  height: var(--header-height);        /* altura controlada */
-  max-width: var(--container-max);
+.fz-header-inner{
+  height: 100px;
+  width: auto;
   margin: 0 auto;
-  padding: 0 var(--x-pad);             /* sin padding vertical */
-  box-sizing: border-box;
+  padding: 0 var(--x-pad-desktop);
 
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  overflow: hidden;
+  align-items: center;              /* centra verticalmente logo + nav */
+  justify-content: space-between;  /* LOGO izq | NAV dcha */
+  overflow: hidden;                 /* seguridad para PNG con aire */
 }
 
-/* Marca (logo + texto opcional) */
-.brand{
+/* ===== Marca / Logo ===== */
+.fz-logo-area{
+  height: 100%;                      /* ← IMPORTANTE: no 120% */
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  min-width: 0;
+  gap: .6rem;
+  text-decoration: none;
+  user-select: none;
+  overflow: hidden;                 /* recorta exceso del PNG */
 }
 
-.brand .logo{
-  height: calc(var(--header-height) - 12px); /* rellena el alto del header */
-  width: auto;
+.fz-logo-img{
+  height: 190%;
+  width: 135px;
   display: block;
+  object-fit: contain;
+  transform: translateY(var(--logo-tweak-desktop)); /* alineación fina desktop */
 }
 
-/* Oculto por defecto porque tu PNG ya lleva la palabra; actívalo si lo necesitas */
-.wordmark{
-  display: none;
-  color: #fff4e6;
-  font-weight: 800;
-  font-size: clamp(1.2rem, 2.4vw, 2rem);
-  letter-spacing: .3px;
+.fz-logo-text{
+  font-size: clamp(1.1rem,2.2vw,1.4rem);
+  font-weight: 600;
+  color: #fffdf8;
+  letter-spacing: .03em;
+  line-height: 1;
+  white-space: nowrap;
 }
 
-/* ===== Nav ===== */
-.main-nav{
+/* ===== Navegación (desktop) ===== */
+.fz-nav{
   display: flex;
   align-items: center;
-  gap: 22px;
+  gap: 1.5rem;
 }
 
-.main-nav a{
-  color: #fff4e6;
-  font-weight: 600;
-  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+.fz-nav-link{
+  font-size: .98rem;
+  color: var(--link);
   text-decoration: none;
+  position: relative;
+  padding-bottom: 2px;
+  transition: color .2s ease, transform .2s ease;
 }
-.main-nav a:hover{ text-decoration: underline; }
-
-/* ===== Botón hamburguesa ===== */
-.hamburger{
-  display: none;
-  -webkit-tap-highlight-color: transparent;
-  background: transparent;
-  border: 0;
-  padding: 6px;
-  cursor: pointer;
+.fz-nav-link::after{
+  content: "";
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 0; height: 2px;
+  border-radius: 999px;
+  background: var(--underline);
+  transition: width .2s ease;
 }
-.hamburger span{
-  display: block;
-  width: 26px;
-  height: 3px;
-  background: #fff4e6;
-  border-radius: 2px;
-  transition: transform .2s, opacity .2s;
+.fz-nav-link:hover{ color: var(--linkHover); transform: translateY(-1px); }
+.fz-nav-link:hover::after{ width: 100%; }
+
+.fz-login-btn{
+  padding: .45rem 1.1rem;
+  border-radius: 999px;
+  border: none;
+  text-decoration: none;
+  font-size: .95rem;
+  font-weight: 500;
+  background: #fffaf4;
+  color: #e07a5f;
+  box-shadow: 0 2px 4px rgba(0,0,0,.08);
 }
-.hamburger span + span{ margin-top: 5px; }
+.fz-login-btn:hover{ background:#ffe7d4; color:#c65a3a; }
 
-/* Animación a “X” */
-.hamburger.is-active span:nth-child(1){ transform: translateY(8px) rotate(45deg); }
-.hamburger.is-active span:nth-child(2){ opacity: 0; }
-.hamburger.is-active span:nth-child(3){ transform: translateY(-8px) rotate(-45deg); }
+/* ===== Burger (oculto en escritorio) ===== */
+.fz-burger{ display: none; }
+.fz-burger-line{ height: 2px; width: 18px; border-radius: 999px; background: #fffaf4; }
 
-/* ===== Responsive ===== */
-@media (max-width: 900px){
-  /* mostrar hamburguesa, esconder nav hasta abrir */
-  .hamburger{ display: inline-flex; }
+/* =========================
+   Responsive (<768px)
+   ========================= */
+@media (max-width: 768px){
+  .fz-header-inner{
+    height: var(--header-h-mobile);
+    padding: 0 var(--x-pad-mobile);
 
-  .main-nav{
+    display: grid;
+    grid-template-columns: 34px 1fr 34px; /* burger | marca | hueco */
+    align-items: center;
+    column-gap: 12px;
+  }
+
+  .fz-burger{
+    display: flex;
+    grid-column: 1;
+    justify-self: start;
+    -webkit-tap-highlight-color: transparent;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 34px; height: 34px;
+    padding: 0; border: 0; border-radius: 999px;
+    background: rgba(255,255,255,.25);
+    cursor: pointer;
+  }
+
+  .fz-logo-area{
+    grid-column: 2;
+    justify-self: center;
+    height: 100%;
+  }
+
+  .fz-logo-img{
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    transform: translateY(var(--logo-tweak-mobile)); /* móvil sin corrección */
+  }
+
+  /* Panel flotante del menú */
+  .fz-nav{
     position: absolute;
-    top: calc(var(--header-height));  /* aparece justo debajo del header */
-    right: var(--x-pad);
-    left: var(--x-pad);
+    top: calc(var(--header-h-mobile) + 8px);
+    right: var(--x-pad-mobile);
+    background: var(--header-bg);
+    border-radius: 16px;
+    padding: .75rem 1rem;
     display: none;
     flex-direction: column;
-    gap: 12px;
-
-    background: #e07a5f;
-    padding: 12px;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0,0,0,.15);
+    align-items: flex-start;
+    gap: .75rem;
+    box-shadow: 0 6px 12px rgba(0,0,0,.18);
+    z-index: 20;
   }
-  .main-nav.open{ display: flex; }
+  .fz-nav--open{ display: flex; }
+
+  .fz-login-btn{
+    align-self: stretch;
+    text-align: center;
+    width: 100%;
+  }
 }
