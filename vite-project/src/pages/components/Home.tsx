@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import Header from "./Header";
 import "./Home.css";
 
+// IMPORTS DE LAS ILUSTRACIONES
+import HeroFamily from "../../assets/images/Logofamilia.png";
+import ConsejoAvatar from "../../assets/images/consejodeldia.png";
+
 export default function Home() {
   const [open, setOpen] = useState<string | null>(null);
 
@@ -42,32 +46,55 @@ export default function Home() {
     <>
       <Header />
 
-      {/* ID para el enlace "Inicio" del header */}
       <main className="page" id="inicio">
-        {/* HERO / TÍTULO */}
+        {/* HERO con ilustración a la derecha */}
         <section className="hero">
-          <h2 className="hero-title">
-            Tu asistente inteligente para familias ✨
-          </h2>
-          <p className="hero-subtitle">
-            Organiza el día a día, reparte tareas y reserva tiempo para cada
-            persona de casa sin perderte nada importante.
-          </p>
+          <div className="hero-left">
+            <h2 className="hero-title">
+              Tu asistente inteligente para familias ✨
+            </h2>
 
-          <div className="hero-extra">
-            <div className="quote">
-              <span className="quote-label">Consejo de hoy</span>
-              <p className="quote-text">
-                Planificad juntos una actividad en familia de 15 minutos sin
-                pantallas.
-              </p>
-            </div>
+            <p className="hero-subtitle">
+              Organiza el día a día, reparte tareas y reserva tiempo para cada
+              persona de casa sin perderte nada importante.
+            </p>
 
-            <div className="quick-badges">
-              <span className="badge">✅ 3 tareas completadas</span>
-              <span className="badge">📅 2 eventos hoy</span>
-              <span className="badge">🧘 1 rato de tiempo personal</span>
+            <div className="hero-extra">
+              {/* CONSEJO DE HOY con avatar circular */}
+              <div className="quote">
+                <div className="quote-avatar">
+                  <img
+                    src={ConsejoAvatar}
+                    alt="Avatar consejo del día"
+                    loading="lazy"
+                  />
+                </div>
+
+                <div className="quote-content">
+                  <span className="quote-label">Consejo de hoy</span>
+                  <p className="quote-text">
+                    Planificad juntos una actividad en familia de 15 minutos sin
+                    pantallas.
+                  </p>
+                </div>
+              </div>
+
+              {/* BADGES */}
+              <div className="quick-badges">
+                <span className="badge">✅ 3 tareas completadas</span>
+                <span className="badge">📅 2 eventos hoy</span>
+                <span className="badge">🧘 1 rato de tiempo personal</span>
+              </div>
             </div>
+          </div>
+
+          {/* Ilustración grande de la familia */}
+          <div className="hero-right">
+            <img
+              src={HeroFamily}
+              alt="Familia organizando su calendario"
+              loading="lazy"
+            />
           </div>
         </section>
 
