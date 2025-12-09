@@ -41,7 +41,7 @@ main {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
 }
 
-/* Bienvenida / textos */
+/* Textos */
 
 .hero-title {
   font-size: 1.6rem;
@@ -277,6 +277,119 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 900;
+}
+
+/* ===== FAB MENU ===== */
+
+.fab-menu {
+  position: fixed;
+  right: 1.8rem;
+  bottom: 5.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  z-index: 950;
+}
+
+.fab-menu-item {
+  padding: 0.6rem 1rem;
+  background: #ffffff;
+  color: #333;
+  font-size: 0.9rem;
+  border-radius: 12px;
+  border: 1px solid #e5d7c9;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.fab-menu-item:hover {
+  background: #fff3e6;
+  transform: translateY(-1px);
+}
+
+/* ===== MODAL RÁPIDO ===== */
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.28);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  width: 100%;
+  max-width: 420px;
+  background: #fffdf9;
+  border-radius: 18px;
+  padding: 1.4rem 1.5rem 1.2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+}
+
+.modal-title {
+  margin: 0 0 0.8rem;
+  font-size: 1.1rem;
+  color: #3a5a40;
+}
+
+.modal-label {
+  display: block;
+  font-size: 0.85rem;
+  color: #6b4a39;
+  margin-bottom: 0.35rem;
+}
+
+.modal-textarea {
+  width: 100%;
+  min-height: 90px;
+  resize: vertical;
+  padding: 0.6rem 0.7rem;
+  border-radius: 10px;
+  border: 1px solid #e6d5c4;
+  font-family: inherit;
+  font-size: 0.9rem;
+  color: #333;
+  background: #fffaf2;
+  box-sizing: border-box;
+}
+
+.modal-textarea:focus {
+  outline: none;
+  border-color: #f4a28c;
+  box-shadow: 0 0 0 2px rgba(244, 162, 140, 0.25);
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.6rem;
+  margin-top: 0.9rem;
+}
+
+.modal-button {
+  border: none;
+  border-radius: 999px;
+  padding: 0.45rem 0.9rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  background: #f4a28c;
+  color: #ffffff;
+}
+
+.modal-button.secondary {
+  background: #f1e3d6;
+  color: #5c3a2c;
+}
+
+.modal-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 /* ===== Footer ===== */
@@ -326,7 +439,7 @@ footer p {
   }
 
   .sections {
-    grid-template-columns: 1fr; /* a una columna */
+    grid-template-columns: 1fr;
     gap: 12px;
   }
 

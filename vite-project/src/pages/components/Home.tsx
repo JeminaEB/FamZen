@@ -8,6 +8,9 @@ import ConsejoAvatar from "../../assets/images/consejodeldia.png";
 
 export default function Home() {
   const [open, setOpen] = useState<string | null>(null);
+  const [showFabMenu, setShowFabMenu] = useState<boolean>(false);
+  const [modalType, setModalType] = useState<"tarea" | "nota" | null>(null);
+  const [modalText, setModalText] = useState<string>("");
 
   const toggle = (section: string) =>
     setOpen(open === section ? null : section);
@@ -41,6 +44,37 @@ export default function Home() {
       icon: "📄",
     },
   ];
+
+  const openModal = (type: "tarea" | "nota") => {
+    setModalType(type);
+    setModalText("");
+    setShowFabMenu(false);
+  };
+
+  const closeModal = () => {
+    setModalType(null);
+    setModalText("");
+  };
+
+  const handleSave = () => {
+    if (!modalType) return;
+
+    // Aquí en un futuro podrás llamar a tu backend o guardar en localStorage
+    console.log(
+      modalType === "tarea"
+        ? "Nueva tarea rápida:"
+        : "Nueva nota rápida:",
+      modalText
+    );
+
+    alert(
+      modalType === "tarea"
+        ? "Tarea guardada (simulado) 📝"
+        : "Nota guardada (simulado) 📝"
+    );
+
+    closeModal();
+  };
 
   return (
     <>
@@ -146,11 +180,83 @@ export default function Home() {
           </p>
         </section>
 
+        {/* MENÚ DEL BOTÓN FLOTANTE */}
+        {showFabMenu && (
+          <div className="fab-menu">
+            <button
+              className="fab-menu-item"
+              onClick={() => openModal("tarea")}
+            >
+              ➕ Nueva tarea
+            </button>
+            <button
+              className="fab-menu-item"
+              onClick={() => openModal("nota")}
+            >
+              📝 Nueva nota
+            </button>
+          </div>
+        )}
+
         {/* BOTÓN FLOTANTE (+) */}
-        <button className="fab" aria-label="Crear nuevo">
+        <button
+          className="fab"
+          aria-label="Crear nuevo"
+          onClick={() => setShowFabMenu((prev) => !prev)}
+        >
           +
         </button>
       </main>
+
+      {/* MODAL RÁPIDO (tarea / nota) */}
+      {modalType && (
+        <div className="modal-backdrop" onClick={closeModal}>
+          <div
+            className="modal"
+            onClick={(e) => {
+              e.stopPropagation();
+            }}
+          >
+            <h3 className="modal-title">
+              {modalType === "tarea" ? "Nueva tarea rápida" : "Nueva nota rápida"}
+            </h3>
+
+            <label className="modal-label">
+              {modalType === "tarea"
+                ? "Descripción de la tarea"
+                : "Contenido de la nota"}
+            </label>
+            <textarea
+              className="modal-textarea"
+              value={modalText}
+              onChange={(e) => setModalText(e.target.value)}
+              placeholder={
+                modalType === "tarea"
+                  ? "Ej: Poner lavadora, revisar deberes, llamar al pediatra..."
+                  : "Ej: Lista de la compra, idea para el finde, nota rápida..."
+              }
+            />
+
+            <div className="modal-actions">
+              <button
+                className="modal-button secondary"
+                type="button"
+                onClick={closeModal}
+              >
+                Cancelar
+              </button>
+              <button
+                className="modal-button"
+                type="button"
+                onClick={handleSave}
+                disabled={!modalText.trim()}
+              >
+                Guardar
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       <footer>
         <p>© 2025 FamZen · Todos los derechos reservados</p>
@@ -158,3 +264,4 @@ export default function Home() {
     </>
   );
 }
+
